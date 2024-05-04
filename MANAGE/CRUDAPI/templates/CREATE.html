@@ -1,0 +1,70 @@
+{% extends 'S2.html' %}
+
+{% load crispy_forms_tags %}
+
+
+{%block content%}
+
+
+
+<body>
+
+    <div class="container bg-light shadow-md p-5 ">
+
+        <h3> ADD MEDICINE </h3>
+
+        <hr>
+        <br>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            {{form.m_id|as_crispy_field}}
+
+            <br>
+
+            {{form.mname|as_crispy_field}}
+
+            <br>
+
+            {{form.desc|as_crispy_field}}
+
+            <br>
+
+            {{form.price|as_crispy_field}}
+
+            <br>
+
+            {{form.stock|as_crispy_field}}
+
+            <br>
+
+            
+            <button type="submit" class="btn btn-primary w-100 btn-block p-2"> ADD &nbsp; <i class="fa fa-key" aria-hidden="true"></i> </button>
+            <!-- <br>
+            <button type="submit" href="create" class="btn btn-primary w-100 btn-block p-2"> SAVE & ADD NEXT &nbsp; <i class="fa fa-key" aria-hidden="true"></i> </button> -->
+
+
+
+        </form>
+
+        <br>
+
+
+
+
+    </div>
+
+    <br>
+
+</body>
+
+
+
+
+
+
+
+
+{%endblock%}

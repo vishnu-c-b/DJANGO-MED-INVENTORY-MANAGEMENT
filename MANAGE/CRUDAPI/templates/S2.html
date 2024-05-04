@@ -1,0 +1,97 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+
+    <head> 
+
+        <meta charset="utf-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <title> MED</title>
+
+        <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/cyborg/bootstrap.min.css">
+
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </head>
+
+    <body>
+
+       <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href= "{% url 'inner' %}"><img src="https://thumbs.dreamstime.com/b/medical-logo-caduceus-72380945.jpg" height="30px" width="30px" alt=""></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+       
+        
+       
+        
+        </li>
+      </ul>
+      <form method="get" action="{% url 'search' %}" class="d-flex">
+        
+                      <input name="query" class="form-control me-sm-2" type="search" placeholder="Search">
+                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                 
+                  <li class="nav-item">
+
+                    <a class="" href="{% url 'out' %}"><img  height="50px" width="50px" style=" margin-top: -28px;   border-radius: 50%;" src="data:image/png;base64,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" alt=""></a>
+                  </li>
+       </form>
+      
+    </div>
+  </div>
+</nav>
+
+
+
+        <div class="container">
+
+            <br>
+
+         
+
+         
+
+           {% block content %}
+
+
+
+
+           {% endblock %}
+
+
+        </div>
+
+        <script src="{% static 'js/app.js' %}"></script>
+
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        
+        
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+
+    </body>
+
+
+
+</html>

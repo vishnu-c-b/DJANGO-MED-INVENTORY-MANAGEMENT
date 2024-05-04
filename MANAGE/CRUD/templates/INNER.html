@@ -1,0 +1,74 @@
+{% extends 'S2.html' %}
+
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+<hr>
+
+<a class="btn btn-outline-primary btn-sm" href="{% url 'create' %}">
+
+    Create a new record &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+</a>
+
+<hr> 
+
+
+
+
+        <div class="container-fluid martop7">
+            <div class="jumbotron jumcust">
+                <h2>Medicine Details</h2>
+                <div class="row">
+                    <div class="col-md-1">
+                    </div>
+                    <table border="1" class="table table-responsive table-hover col-md-10">
+                        <tr>
+                            <th>Medicine Code</th>
+                            <th>Medicine Name</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th>Description</th>
+                        </tr>
+                        {% for rec in record %}
+                            <tr>
+                                <td>{{ rec.m_id }}</td>
+                                <td>{{ rec.mname }}</td>
+                                <td>{{ rec.price }}</td>
+                                <td>{{ rec.stock }}</td>
+                                <td>{{ rec.desc }}</td>
+                                <td><a href="{% url 'update' rec.m_id %}"><button class="btn-primary">UPDATE</button></a></td>
+                                <td><a ><button class="btn-danger" data-toggle="modal" data-target="#deleteModal">DELETE</button></a></td>
+                            </tr>
+                            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="deleteModalLabel">Delete Confirmation</h5>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                      Are you sure you want to delete this item?
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                      <a href="{% url 'delete' rec.m_id %}"><button type="button" class="btn btn-danger" onclick="deleteItem()">Delete</button></a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                        {% endfor %}
+                    </table>
+                </div>
+
+                <recter></recter>
+            </div>
+        </div>
+
+
+
+{% endblock %}

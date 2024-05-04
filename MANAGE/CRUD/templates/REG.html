@@ -1,0 +1,111 @@
+{% extends 'STRUCTURE.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <body>
+
+        <div  class="container bg-light shadow-md p-5 ">
+
+            <h3> Create your account </h3>
+
+            <hr>
+            <br>
+
+            <form method="POST" >
+
+                {% csrf_token %}
+               <br>
+               
+               <div id="div_id_username" class="form-group">
+        
+            
+                <label for="id_username" class=" requiredField">
+                        Username<span class="asteriskField">*</span>
+                    </label>
+                
+                        <div>
+                              
+                                    <input type="text" name="username" maxlength="150" autofocus="" class="textinput textInput form-control" required="" aria-describedby="id_username_helptext" id="id_username">
+                       
+                        </div>
+                    
+                
+            </div>
+
+
+
+
+
+
+
+                <br>
+                <div id="div_id_password1" class="form-group">
+        
+            
+                    <label for="id_password1" class=" requiredField">
+                            Password<span class="asteriskField">*</span>
+                        </label>
+                    
+                            <div>
+                           
+                                        <input type="password" name="password1" autocomplete="new-password" class="textinput textInput form-control" required="" aria-describedby="id_password1_helptext" id="id_password1">
+                        
+                            </div>
+                        
+                    
+                </div>
+                
+
+
+
+
+
+
+
+                <br>
+                <div id="div_id_password2" class="form-group">
+        
+            
+                    <label for="id_password2" class=" requiredField">
+                            Password confirmation<span class="asteriskField">*</span>
+                        </label>
+                    
+                            <div>
+                                
+                                    
+                                        <input type="password" name="password2" autocomplete="new-password" class="textinput textInput form-control" required="" aria-describedby="id_password2_helptext" id="id_password2">
+                             
+                    
+                
+                           </div>
+                        
+                    
+                </div>
+                <br>
+
+            
+
+                <button type="submit" class="btn btn-primary w-100 btn-block p-2"> Create account &nbsp; <i class="fa fa-user" aria-hidden="true"></i> </button>
+
+
+            </form>
+
+            <br>
+
+            <div class="text-center">
+
+                <p> Already have an account? </p> <a href="{% url 'log' %}"> Login </a>
+
+            </div>
+
+
+        </div>
+
+        <br>
+
+    </body>
+
+
+{% endblock %}
